@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Echos Within Audio Steganography</title>
-
-    <style>
+    
+    <head>
+     <meta charset="UTF-8">
+     <title>Echos Within-Audio Steganography</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
         body {
             margin: 0;
             padding: 0;
@@ -33,68 +33,38 @@
             text-align: center;
         }
 
-        label {
-            font-size: 16px;
-            display: block;
-            margin-top: 20px;
-            text-align: left;
+        p {
+            font-size: 18px;
+            line-height: 1.6;
         }
 
-        input[type="file"] {
-            margin-top: 10px;
-            width: 100%;
-        }
-
-        textarea {
-            width: 95%;
-            height: 90px;
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 6px;
-            border: none;
-            resize: none;
-            background: #0f172a;
-            color: white;
+        a {
+            text-decoration: none;
         }
 
         button {
-            margin-top: 25px;
-            align-self: center;
-            width: 50%;
-            padding: 12px;
-            background: #3b82f6;
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 16px;
             color: white;
-            font-size: 18px;
+            background-color: #3b82f6;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background: #2563eb;
+            background-color: #2563eb;
         }
-    </style>
-</head>
-
-<body>
-
-    <h1>Welcome to Echos Within</h1>
-
-    <div class="container">
-        <h2>Encode Message</h2>
-
-        <form action="#" method="POST" enctype="multipart/form-data">
-            
-            <label>Upload Song:</label>
-            <input type="file" name="audio" required>
-
-            <label>Enter the secret message:</label>
-            <textarea name="message" required></textarea>
-
-            <button type="submit">Encode</button>
-        </form>
-    </div>
-
-</body>
+     </style>
+    </head>
+    <body>
+        <h1>Welcome to Echos Within</h1>
+        <div class="container">
+            <p>Discover the art of hidden comunication with Echos Within, your go-to platform for audio stegnography. Whether you want to encode secret messages into audio files or decode hidden information, we havve got you covered.</p>
+            <a href="/encode_page"><button>Encode Message</button></a>
+            <a href="/decode_page"><button>Decode Message</button></a>
+        </div>
+    </body>
 </html>

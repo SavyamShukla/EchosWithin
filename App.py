@@ -30,7 +30,7 @@ def decode_page():
 @app.route('/encode', methods=['POST'])
 def handle_encode():
     message= request.form.get('message')
-    audio_file= request.files('audio_file')
+    audio_file= request.files.get('audio_file')
 
     if not message:
         flash('Please enter a message to encode.')
@@ -61,15 +61,15 @@ def handle_encode():
     output_path= os.path.join(app.config['OUTPUT_FOLDER'], output_filename)
 
     config={
-        'input_audio_path': audio_to_proccess,
-        'output_audio_path': output_path,
+        'input_file': audio_to_proccess,
+        'output_file': output_path,
         'message': message
     }
     result= run_encoding(config)
 
     if result.get('success'):
         flash('Message encoded successfully!')
-        return send_file(result["output_audio_path"], as_attachment=True, download_name=output_filename)
+        return send_file(result["output_file"], as_attachment=True, download_name=output_filename)
         
     else:
         flash('Failed to encode the message.')
