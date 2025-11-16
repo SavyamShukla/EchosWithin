@@ -77,10 +77,11 @@ def handle_encode():
     
 @app.route('/decode', methods=['POST'])
 def handle_decode():
-    file= request.files.get('audio')
-    if file or file.filename=='':
-        flash('Please upload an audio file.')
-        return redirect(url_for('decode_page'))
+    file= request.files.get('audio_file')
+    if not file or file.filename=='':
+        return render_template('decode.html', 
+                                 message=None, 
+                                 error="Error: Please select a file to decode.")
     
 
     filename= secure_filename(file.filename)
@@ -88,18 +89,24 @@ def handle_decode():
     file.save(input_path)
 
     config={
-        'input_audio_path': input_path
+        'input_file': input_path
     }
 
     result= run_decoding(config)
 
+    found_message= None
+    error_message= None
+
     if result.get('success'):
-        hidden_message= result.get('found_message')
-        flash('Message decoded successfully!'+ hidden_message)
+        found_message= result.get('message_found')
     else:
-        flash('Failed to decode the message.')
+        error_message= result.get('error_message')
+
+    return render_template('decode.html', 
+                             message=found_message, 
+                             error=error_message)
     
-    return redirect(url_for('decode_page'))
+   
 
 
 if __name__ == '__main__':
