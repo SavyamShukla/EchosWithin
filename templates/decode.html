@@ -53,6 +53,19 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+        .nav-buttons {
+            display: flex;                 
+            justify-content: space-between;
+            width: calc(100% + 60px);
+            margin-left: -30px;
+            margin-bottom: 20px; 
+                       
+           }
+        .nav-buttons button {
+            margin-top: 0;
+            background-color: aquamarine;
+            color: black;
+          }
         button:hover {
             background-color: #2563eb;
         }
@@ -62,10 +75,14 @@
     <body>
         <h1>Welcome to Echos Within Decoder</h1>
         <div class="container">
+            <div class="nav-buttons">
+             <button type="button" onclick="window.location.href='/'">Home</button>
+             <button type="button" onclick="window.location.href='/encode_page'">Encoder</button>
+            </div>
             <h2>Decode Message</h2>
-
+            
             <form action="/decode" method="POST" enctype="multipart/form-data">
-
+               
                 <label>Upload Song:</label>
                 <input type="file" name="audio_file" required>
 
