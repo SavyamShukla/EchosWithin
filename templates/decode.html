@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -8,14 +9,15 @@
             margin: 0;
             padding: 0;
             font-family: "Trebuchet MS", sans-serif;
-            background: linear-gradient(to right, #0f172a, #1e293b);
+            background: linear-gradient(to right, #000000, #2b0404);
             color: white;
         }
         h1 {
             text-align: center;
             height: 3cm;
             margin-top: 40px;
-            color:bisque;
+            color: #ff3333;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
             font-size: 50px;
             letter-spacing: 2px;
             font-style: italic;
@@ -23,10 +25,11 @@
         .container {
             max-width: 450px;
             margin: 40px auto;
-            background: #1e293b;
+            background: #0f0f0f;    
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            box-shadow: 0 0 25px rgba(220, 20, 60, 0.4);
+            border: 1px solid #330505;
             text-align: center;
         }
         form {
@@ -37,37 +40,41 @@
             display: block;
             margin-top: 20px;
             text-align: left;
+            color: #ffcccc;
         }
         input[type="file"] {
             margin-top: 10px;
             width: 100%;
+            color: #ccc;
         }
         button {
             margin-top: 20px;
             padding: 12px 25px;
             font-size: 16px;
             color: white;
-            background-color: #3b82f6;
+            background-color: #991b1b;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
         .nav-buttons {
-            display: flex;                 
+            display: flex;                
             justify-content: space-between;
             width: calc(100% + 60px);
             margin-left: -30px;
             margin-bottom: 20px; 
-                       
-           }
+        }
         .nav-buttons button {
             margin-top: 0;
-            background-color: aquamarine;
-            color: black;
-          }
+            background-color: #334155;
+            color: #ffffff;
+            border: 1px solid #475569;
+        }
         button:hover {
-            background-color: #2563eb;
+            background-color: #dc2626;
+            box-shadow: 0 0 15px #dc2626;
         }
 
         </style>
@@ -79,29 +86,30 @@
              <button type="button" onclick="window.location.href='/'">Home</button>
              <button type="button" onclick="window.location.href='/encode_page'">Encoder</button>
             </div>
-            <h2>Decode Message</h2>
+            <h2 style="color: #e5e5e5;">Decode Message</h2>
             
             <form action="/decode" method="POST" enctype="multipart/form-data">
-               
+                
                 <label>Upload Song:</label>
                 <input type="file" name="audio_file" required>
 
                 <button type="submit">Decode Message</button>
 
               {% if message %}
-                <label style="margin-top: 30px;">Decoded Message:</label>
-                <textarea readonly style="width: 95%; height: 90px; margin-top: 10px; padding: 10px; border-radius: 6px; border: none; resize: none; background: #0f172a; color: white;">{{ message }}</textarea>
+                <label style="margin-top: 30px; color: #4ade80;">Decoded Message:</label>
+                <textarea readonly style="width: 95%; height: 90px; margin-top: 10px; padding: 10px; border-radius: 6px; border: 1px solid #4ade80; resize: none; background: #000; color: #4ade80; font-family: monospace;">{{ message }}</textarea>
             {% endif %}
 
             {% if error %}
-                <label style="margin-top: 30px;">Error:</label>
-                <textarea readonly style="width: 95%; height: 60px; margin-top: 10px; padding: 10px; border-radius: 6px; border: none; resize: none; background: #991b1b; color: white;">{{ error }}</textarea>
+                <label style="margin-top: 30px; color: #ef4444;">Error:</label>
+                <textarea readonly style="width: 95%; height: 60px; margin-top: 10px; padding: 10px; border-radius: 6px; border: 1px solid #7f1d1d; resize: none; background: #450a0a; color: #fecaca;">{{ error }}</textarea>
             {% endif %}
 
             </form>
             
         </div>
-
-
     </body>
 </html>
+
+
+

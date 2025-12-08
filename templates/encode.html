@@ -10,27 +10,22 @@
             padding: 0;
             font-family: "Trebuchet MS", sans-serif;
             color: white;
-            background: linear-gradient(-45deg, #0f172a, #1e293b, #0c2a4c, #1f3a5f);
+            background: linear-gradient(-45deg, #000000, #3f0909, #0f1020, #220303);
             background-size: 400% 400%;
             animation: gradientFlow 15s ease infinite;
         }
         @keyframes gradientFlow {
-       0% {
-              background-position: 0% 50%;
-          }
-      50% {
-              background-position: 100% 50%;
-          }
-      100% {
-              background-position: 0% 50%;
-          }
-}
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
         h1 {
             text-align: center;
             height: 3cm;
             margin-top: 40px;
-            color:bisque;
+            color: #ff3333;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
             font-size: 50px;
             letter-spacing: 2px;
             font-style: italic;
@@ -39,10 +34,11 @@
         .container {
             max-width: 450px;
             margin: 40px auto;
-            background: #1e293b;
+            background: #0f0f0f;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            box-shadow: 0 0 25px rgba(220, 20, 60, 0.4);
+            border: 1px solid #330505;
             text-align: center;
         }
 
@@ -51,11 +47,13 @@
             display: block;
             margin-top: 20px;
             text-align: left;
+            color: #ffcccc; 
         }
 
         input[type="file"] {
             margin-top: 10px;
             width: 100%;
+            color: #ccc;
         }
 
         textarea {
@@ -64,10 +62,17 @@
             margin-top: 10px;
             padding: 10px;
             border-radius: 6px;
-            border: none;
+            border: 1px solid #550000;
             resize: none;
-            background: #0f172a;
-            color: white;
+            background: #1a1a1a;
+            color: #ff3333; 
+            font-family: monospace;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: red;
+            box-shadow: 0 0 5px red;
         }
 
         button {
@@ -75,45 +80,53 @@
             align-self: center;
             width: 50%;
             padding: 12px;
-            background: #3b82f6;
+            background: #991b1b;
             color: white;
             font-size: 18px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
+        
         .nav-buttons {
-            display: flex;                 
+            display: flex;                
             justify-content: space-between;
             width: calc(100% + 60px);
             margin-left: -30px;
             margin-bottom: 20px; 
-                       
-           }
+        }
+        
         .nav-buttons button {
             margin-top: 0;
-            background-color: aquamarine;
-            color: black;
+            background-color: #334155;
+            color: #ffffff;
             width: 25%;
-          }
+            border: 1px solid #475569;
+        }
+        
+        .nav-buttons button:hover {
+            background-color: #475569;
+        }
 
-        button:hover {
-            background: #2563eb;
+        button[type="submit"]:hover {
+            background: #dc2626; 
+            box-shadow: 0 0 15px #dc2626;
         }
     </style>
 </head>
 
 <body>
-
     <h1>Welcome to Echos Within Encoder</h1>
 
     <div class="container">
         <div class="nav-buttons">
              <button type="button" onclick="window.location.href='/'">Home</button>
              <button type="button" onclick="window.location.href='/decode_page'">Decoder</button>
-            </div>
-        <h2>Encode Message</h2>
+        </div>
+        
+        <h2 style="color: #e5e5e5;">Encode Message</h2>
 
         <form action="/encode" method="POST" enctype="multipart/form-data">
             
@@ -121,7 +134,7 @@
             <input type="file" name="audio_file" required>
 
             <label>Enter the secret message:</label>
-            <textarea name="message" required></textarea>
+            <textarea name="message" required placeholder="Type your classified intel here..."></textarea>
 
             <button type="submit">Encode</button>
         </form>
@@ -129,3 +142,5 @@
 
 </body>
 </html>
+
+
